@@ -13,7 +13,7 @@
 <body>
     <?php
     include("database.php");
-    $selectQuery = "SELECT jobName , closeDate  FROM jobs";
+    $selectQuery = "SELECT jobName , quota , closeDate  FROM jobs";
     $result = $con->query($selectQuery);
     ?>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
@@ -36,20 +36,29 @@
     <table id="listOfJobs" class="table table-hover" >
         <tr>
             <th>No.</th>
-            <th width="500">Name of job offered</th>
+            <th width="400">Name of job offered</th>
+            <th>Quota</th>
             <th>Closing Date</th>
             <th>Status</th>
             <th></th>
         </tr>
         <?php
         $i = 0;
-        while ($row = mysqli_fetch_array($result)){?>
+        while ($row = mysqli_fetch_array($result)){
+            $status = "Closed";
+            $statusStyle = "status-close";
+            if($row["closeDate"] >= date("Y-m-d")){
+                $status = "Open";
+                $statusStyle = "status-open";
+            }
+            ?>
         <tr>  
             <td><?php echo $i+1; ?></td>
-            <td><a href=viewApplicants.html><?php echo $row["jobName"];?></a></td>
+            <td><a href="viewApplicants.php?jobname=<?php echo $row["jobName"];?>"><?php echo $row["jobName"];?></a></td>
+            <td><?php echo $row["quota"];?></td>
             <td><?php echo $row["closeDate"];?></td>
-            <td>OPEN</td>
-            <td><input type="button" class="btn btn-danger" value="Remove" onclick="removeJob(this)"></td>
+            <td class="<?php echo $statusStyle; ?>"><?php echo $status;?></td>
+            <td><input type="button" class="btn btn-danger" value="Remove" onclick="removeJob(this, <?php $row['jobName'];?>)"></td>
         </tr>
         <?php $i++;}?>
     </table>
@@ -82,9 +91,32 @@
             }
         }
         //need to make sure delete from database also
-        function DeleteJob(job) { 
-        var p=job.parentNode.parentNode;
-        p.parentNode.removeChild(p);
+        function DeleteJob(job, jname) { 
+            var p=job.parentNode.parentNode;
+            p.parentNode.removeChild(p);
+
+            <?php
+            //delete data from database as well:
+            $sql = "DELETE FROM jobs WHERE jobName= jname";
+            if ($conn->query($sql) === TRUE) {
+                echo "Record deleted successfully";
+            } else {
+                echo "Error deleting record: " . $conn->error;
+            }
+            ?>
+
+        }
+
+        function status(closeDate){
+            var today = new Date(y,m,d);
+            if (closeDate <= today){
+                msg = "OPEN";
+                return msg
+                $("#productname").focus();
+            }
+            else{
+                
+            }
         }
     </script>
     
