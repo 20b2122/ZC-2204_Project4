@@ -12,7 +12,7 @@
 <body>
     <?php
     include("database.php");
-    $selectQuery = "SELECT jobName , quota , closeDate  FROM job";
+    $selectQuery = "SELECT * FROM job";
     $result = $con->query($selectQuery);
     ?>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
@@ -55,7 +55,8 @@
             ?>
         <tr>  
             <td><?php echo $i+1; ?></td>
-            <td><a href="viewApplicants.php?jobname=<?php echo $row["jobName"];?>"><?php echo $row["jobName"];?></a></td>
+            <td><a href="viewApplicants.php?jobname=<?php echo $row["jobName"];?>&minQualification=<?php echo $row["minQualification"];?>&numExperience=<?php echo $row["numExperience"];?>">
+            <?php echo $row["jobName"];?></a></td>
             <td><?php echo $row["quota"];?></td>
             <td><?php echo $row["closeDate"];?></td>
             <td class="<?php echo $statusStyle; ?>"><?php echo $status;?></td>
@@ -76,16 +77,7 @@
 
 
 <script>
-        /*function productUpdate() {
-            if ($("#productname").val() != null && $("#productname").val() != '') {
-                // Add product to Table
-                productAddToTable();
-                // Clear form fields
-                formClear();
-                // Focus to product name field
-                $("#productname").focus();
-            }
-        }*/
+        
         function removeJob(job) {
             var r = confirm("Are you sure you want to remove this job?");
             if (r == true) {
@@ -107,18 +99,6 @@
             }
             ?>
 
-        }
-
-        function status(closeDate){
-            var today = new Date(y,m,d);
-            if (closeDate <= today){
-                msg = "OPEN";
-                return msg
-                $("#productname").focus();
-            }
-            else{
-                
-            }
         }
     </script>
 
