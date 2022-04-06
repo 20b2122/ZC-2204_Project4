@@ -23,12 +23,19 @@
         <div class="collapse navbar-collapse" id="navbarMenu">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a onclick="location.href='main-page.php'" class="nav-link">Main Page</a>
+                    <a onclick="cancelUpload()" class="nav-link">Main Page</a>
                 </li>
             </ul>
         </div>
     </nav> <br/>
-    
+    <?php
+
+    if (isset($_SESSION['message']) && $_SESSION['message']) {
+    printf('<b>%s</b>', $_SESSION['message']);
+    unset($_SESSION['message']);
+    }
+
+    ?>
     <form role="form" action="form-page-bg.php" method="POST" class="main-form needs-validation" enctype="multipart/form-data" novalidate>
         <h5>APPLICANT INFORMATION</h5>
         <div class="form-group">
@@ -67,7 +74,7 @@
                 <div class="form-group">
                     <label for="Gender">Gender</label>
                     <select name="Gender" id="Gender" class="form-control" required>
-                        <option value="choose" selected>-Select-</option>
+                        <option value="choose" selected>-- Select Gender --</option>
                         <option value="male">Male</option>
                         <option value="female">Female</option>
                     </select>
@@ -90,8 +97,10 @@
             <select name="jobName" id="jobName" class="form-control">
                 <option disabled selected>-- Select Job --</option>
                 <?php
-                    include "config.php";  // Using database connection file here
-                    $job_options = mysqli_query($conn, "SELECT jobName From job");  // Use select query here 
+                    include "database.php";  // Using database connection file here
+
+                    //for dropdown in name of job in the form
+                    $job_options = mysqli_query($conn, "SELECT jobName From job");
 
                     while($results = mysqli_fetch_array($job_options))
                     {
@@ -104,13 +113,13 @@
         <div class="form-group">
             <label for="Level_of_Education">Level of Education</label>
             <select name="Level_of_Education" id="Level_of_Education" class="form-control">
-                <option value="choose" selected>-Select-</option>
-                <option value="phd">PHD</option>
-                <option value="masters">Masters</option>
-                <option value="degree">Degree</option>
-                <option value="diploma">Diploma</option>
-                <option value="alevel">A Level</option>
-                <option value="olevel">O Level</option>
+                <option value="choose" selected>-- Select Level of Education --</option>
+                <option value="PHD">PHD</option>
+                <option value="Masters">Masters</option>
+                <option value="Degree">Degree</option>
+                <option value="Diploma">Diploma</option>
+                <option value="Alevel">Alevel</option>
+                <option value="Olevel">Olevel</option>
             </select>
         </div>
 
@@ -130,7 +139,7 @@
         </div>
         <br>
 
-        <input type="submit" id="btn" class="btn btn-success" value="Submit" style="float:right">
+        <input type="submit" id="btn" class="btn btn-success" name="Submit" value="Submit Form" style="float:right">
         <button style="float:left;"  type="button" class="btn btn-light" onclick="cancelUpload()">Cancel</button>
         <br>
     </form>

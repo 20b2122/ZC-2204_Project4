@@ -1,5 +1,5 @@
 <?php
-require 'config.php';
+require 'database.php';
 
 $result = mysqli_query($conn, "SELECT * FROM job");
 ?>
@@ -87,7 +87,7 @@ $result = mysqli_query($conn, "SELECT * FROM job");
       <td><?php echo $row["minQualification"]; ?></td>
       <td><?php echo $row["numExperience"]; ?></td>
       <td><?php echo $row["jRequirements"]; ?></td>
-      <td><?php echo $row["closeData"]; ?></td>
+      <td><?php echo $row["closeDate"]; ?></td>
       </tr>
       <?php
       $i++;
