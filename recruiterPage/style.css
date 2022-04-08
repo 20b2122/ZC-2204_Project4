@@ -1,0 +1,22 @@
+section{
+    margin-left:10px;
+    margin-right:10px;
+}
+body{
+    font-size: 15px;
+}
+.main-form {
+    width: 900px;
+    margin: auto;
+}
+
+
+.status-close{
+    color: red;
+    font-weight: bold;
+}
+
+.status-open{
+    color: green;
+    font-weight: bold;
+}
