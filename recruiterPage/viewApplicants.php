@@ -1,4 +1,5 @@
 <?php
+//flawed send email function.
 $job = $_GET['jobname'];
 include("database.php");
 $selectQuery = "SELECT * FROM job WHERE jobName='".$job."'";
