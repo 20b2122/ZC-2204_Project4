@@ -44,7 +44,7 @@ $result = mysqli_query($conn, "SELECT * FROM job WHERE closeDate>'".$today."'");
     <div class="text-right" >
       <ul class="navbar-nav">
           <li class="nav-item active">
-            <a class="btn bg-primary nav-link" href="mainRecruiterPage.php">Login</a> <!-- must change the location, this was for testing purposes-->
+            <a class="btn bg-primary nav-link" href="login.php">Login</a> 
           </li>
       </ul>
   </div>
