@@ -1,7 +1,9 @@
 <?php
 require 'database.php';
 
-$result = mysqli_query($conn, "SELECT * FROM job");
+$today = date("Y-m-d");
+
+$result = mysqli_query($conn, "SELECT * FROM job WHERE closeDate>'".$today."'");
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +44,7 @@ $result = mysqli_query($conn, "SELECT * FROM job");
     <div class="text-right" >
       <ul class="navbar-nav">
           <li class="nav-item active">
-            <a class="btn bg-primary nav-link" href="login.html">Login</a>
+            <a class="btn bg-primary nav-link" href="mainRecruiterPage.php">Login</a> <!-- must change the location, this was for testing purposes-->
           </li>
       </ul>
   </div>
@@ -97,7 +99,7 @@ $result = mysqli_query($conn, "SELECT * FROM job");
       <?php
       }
       else{
-      echo "No result found";
+      echo "There is no jobs available at the moment. Please come back again!";
       }
       ?>
       </div>

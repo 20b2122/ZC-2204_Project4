@@ -11,7 +11,7 @@ $jobName = $_POST['jobName'];
 $Work_Experience = $_POST['Work_Experience'];
 $Level_of_Education = $_POST['Level_of_Education'];
 $Major = $_POST['Major'];
-$File_Location = './uploads/'; // idk what this is for, dont forget to work on it.
+$File_Location = './uploads/'; 
 
 //renameing the filename
 $fileName = $_FILES['CV']['name']; 
