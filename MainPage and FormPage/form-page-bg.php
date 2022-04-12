@@ -73,7 +73,7 @@ if (isset($_POST['Submit']) && $_POST['Submit'] == 'Submit Form') {
     $fileType = $_FILES['CV']['type'];
 
     // file extensions allowed
-    $allowedfileExtensions = array('jpg', 'gif', 'png', 'zip', 'txt', 'xls', 'doc', 'pdf');
+   $allowedfileExtensions = array('zip', 'txt', 'xls', 'doc', 'pdf' , 'docx');
 
     if (in_array($fileExtension, $allowedfileExtensions)) {
       // directory where file will be moved
