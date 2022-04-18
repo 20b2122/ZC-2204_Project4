@@ -113,10 +113,10 @@ if (isset($_POST['Submit']) && $_POST['Submit'] == 'Submit Form') {
     $Id_Passport_size = $_FILES['Id_Passport']['size'];
     $Id_Passport_tmp = $_FILES['Id_Passport']['tmp_name'];
 
-    if (in_array($Id_PassportFileExtension, $allowedfileExtensions1)) { //change $Cover_LetterFileExtension
-      $dest_path = $uploadLocation . $Id_Passport; // change $Cover_Letter
+    if (in_array($Id_PassportFileExtension, $allowedfileExtensions1)) {
+      $dest_path = $uploadLocation . $Id_Passport;
 
-      if(move_uploaded_file($Id_Passport_tmp, $dest_path)) {  // change $Cover_Letter_tmp
+      if(move_uploaded_file($Id_Passport_tmp, $dest_path)) { 
         $message = 'File uploaded successfully.';
       } else {
         $message = 'An error occurred while uploading the file to the destination directory. Ensure that the web server has access to write in the path directory.';
@@ -126,7 +126,7 @@ if (isset($_POST['Submit']) && $_POST['Submit'] == 'Submit Form') {
     }
   } else {
     $message = 'Error occurred while uploading the file.<br>';
-    $message .= 'Error:' . $_FILES['Id_Passport']['error']; //change Cover_Letter
+    $message .= 'Error:' . $_FILES['Id_Passport']['error'];
   }
 
   // Qualifications 
@@ -134,10 +134,10 @@ if (isset($_POST['Submit']) && $_POST['Submit'] == 'Submit Form') {
     $Qualifications_size = $_FILES['Qualifications']['size'];
     $Qualifications_tmp = $_FILES['Qualifications']['tmp_name'];
 
-    if (in_array($QualificationsFileExtension, $allowedfileExtensions2)) { //change $Cover_LetterFileExtension
-      $dest_path = $uploadLocation . $Qualifications; // change $Cover_Letter
+    if (in_array($QualificationsFileExtension, $allowedfileExtensions2)) { 
+      $dest_path = $uploadLocation . $Qualifications; 
 
-      if(move_uploaded_file($Qualifications_tmp, $dest_path)) {  // change $Cover_Letter_tmp
+      if(move_uploaded_file($Qualifications_tmp, $dest_path)) { 
         $message = 'File uploaded successfully.';
       } else {
         $message = 'An error occurred while uploading the file to the destination directory. Ensure that the web server has access to write in the path directory.';
@@ -147,7 +147,7 @@ if (isset($_POST['Submit']) && $_POST['Submit'] == 'Submit Form') {
     }
   } else {
     $message = 'Error occurred while uploading the file.<br>';
-    $message .= 'Error:' . $_FILES['Qualifications']['error']; //change Cover_Letter
+    $message .= 'Error:' . $_FILES['Qualifications']['error']; 
   }
 
   // School_Details
@@ -155,10 +155,10 @@ if (isset($_POST['Submit']) && $_POST['Submit'] == 'Submit Form') {
     $School_Details_size = $_FILES['School_Details']['size'];
     $School_Details_tmp = $_FILES['School_Details']['tmp_name'];
 
-    if (in_array($School_DetailsFileExtension, $allowedfileExtensions2)) { //change $Cover_LetterFileExtension
+    if (in_array($School_DetailsFileExtension, $allowedfileExtensions2)) { 
       $dest_path = $uploadLocation . $School_Details; // change $Cover_Letter
 
-      if(move_uploaded_file($School_Details_tmp, $dest_path)) {  // change $Cover_Letter_tmp
+      if(move_uploaded_file($School_Details_tmp, $dest_path)) { 
         $message = 'File uploaded successfully.';
       } else {
         $message = 'An error occurred while uploading the file to the destination directory. Ensure that the web server has access to write in the path directory.';
@@ -168,7 +168,7 @@ if (isset($_POST['Submit']) && $_POST['Submit'] == 'Submit Form') {
     }
   } else {
     $message = 'Error occurred while uploading the file.<br>';
-    $message .= 'Error:' . $_FILES['School_Details']['error']; //change Cover_Letter
+    $message .= 'Error:' . $_FILES['School_Details']['error']; 
   }
   
 
