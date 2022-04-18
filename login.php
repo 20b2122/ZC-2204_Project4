@@ -1,11 +1,11 @@
 <?php
 include("database.php");
 
-if(isset($_POST['username'])){
-    $username=$_POST['username'];
+if(isset($_POST['email'])){
+    $email=$_POST['email'];
     $password=$_POST['password'];
         
-    $sql="SELECT * from recruiter where Username='".$username."'AND Password='".$password."' limit 1";
+    $sql="SELECT * from recruiter where Email='".$email."'AND Password='".$password."' limit 1";
     
     $result=mysqli_query($conn, $sql);
     
@@ -26,7 +26,7 @@ if(isset($_POST['username'])){
 <!DOCTYPE html>
 <head>
 <title>Login Page</title>
-    <link rel="stylesheet" type="text/css" href="login.css">
+    <link rel="stylesheet" type="text/css" href="login.css"/>
 <body>
     <div class="logo">
         <img src="UBD.png" alt="Logo">
@@ -34,12 +34,12 @@ if(isset($_POST['username'])){
     <div class="loginbox">
         
         <form method="POST" action="#">
-            <p>Username</p>
-            <input type="text" name="username" placeholder="Enter username">
+            <p>Email</p>
+            <input type="text" name="email" placeholder="Enter Email">
             <p>Password</p>
             <input type="password" name="password" placeholder="Enter Password">
+            <p><a href="forgot-pass.php">Forgot Password?</a></p>
             <input type="submit" value="Login">
-            <a href="#">Forgot your password?</a><br>
         </form>
     </div>
 </body>
