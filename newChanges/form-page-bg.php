@@ -15,7 +15,7 @@ $Nationality = $_POST['Nationality'];
 // Education / Employment
 $Work_Experience = $_POST['Work_Experience'];
 $Other_Qualification = $_POST['Other_Qualification'];
-$Level_of_Education = $_POST['Level_of_Education'];
+$Level_of_Education = $_POST['Level_of_Education']; // why is the data not posted in database??
 $File_Location = './uploads/'; 
 
 // Rename Id_Passport File
@@ -78,12 +78,12 @@ $selectQuery = "SELECT * FROM job WHERE jobName='".$jobName."'";
 $result = $conn->query($selectQuery);
 $getRowAssoc = mysqli_fetch_assoc($result);
 
-$Level_of_Education_Index = $getRowAssoc['Level_of_Education_Index']; // why is it null???
-$Work_Experience = $getRowAssoc['Work_Experience']; // why is it null???
+$minQualificationIndex = $getRowAssoc['minQualificationIndex'];
+$numExperience = $getRowAssoc['numExperience'];
 
 $Status = 'REJECTED';
 
-if ($Level_of_Education_Index >= $Level_of_Education_Index && $Work_Experience >= $Work_Experience){
+if ($Level_of_Education_Index >= $minQualificationIndex && $Work_Experience >= $numExperience){
     $Status = 'PENDING';
 }
 
