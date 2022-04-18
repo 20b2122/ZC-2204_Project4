@@ -15,7 +15,7 @@ $Nationality = $_POST['Nationality'];
 // Education / Employment
 $Work_Experience = $_POST['Work_Experience'];
 $Other_Qualification = $_POST['Other_Qualification'];
-$Level_of_Education = $_POST['Level_of_Education']; // why is the data not posted in database??
+$Level_Of_Education = $_POST['Level_Of_Education']; // why is the data not posted in database??
 $File_Location = './uploads/'; 
 
 // Rename Id_Passport File
@@ -54,23 +54,23 @@ $Cover_Letter_Full_Name_New = implode("", array_map("trim", explode(" ", $Full_N
 $Cover_Letter = $Cover_Letter_Full_Name_New . ' Cover Letter.' . $Cover_LetterFileExtension;
 
 //initializing Level of education index:
-if ($Level_of_Education == "Olevel"){
-  $Level_of_Education_Index = 1;
+if ($Level_Of_Education == "Olevel"){
+  $Level_Of_Education_Index = 1;
 }
-else if ($Level_of_Education == "Alevel"){
-  $Level_of_Education_Index = 2;
+else if ($Level_Of_Education == "Alevel"){
+  $Level_Of_Education_Index = 2;
 }
-else if ($Level_of_Education == "Diploma"){
-  $Level_of_Education_Index = 3;
+else if ($Level_Of_Education == "Diploma"){
+  $Level_Of_Education_Index = 3;
 }
-else if ($Level_of_Education == "Degree"){
-  $Level_of_Education_Index = 4;
+else if ($Level_Of_Education == "Degree"){
+  $Level_Of_Education_Index = 4;
 }
-else if ($Level_of_Education == "Masters"){
-  $Level_of_Education_Index = 5;
+else if ($Level_Of_Education == "Masters"){
+  $Level_Of_Education_Index = 5;
 }
-else if ($Level_of_Education == "PHD"){
-  $Level_of_Education_Index = 6;
+else if ($Level_Of_Education == "PHD"){
+  $Level_Of_Education_Index = 6;
 }
 
 //initialiizing status by comparing it with the job requirements extracted from the job table:
@@ -83,18 +83,18 @@ $numExperience = $getRowAssoc['numExperience'];
 
 $Status = 'REJECTED';
 
-if ($Level_of_Education_Index >= $minQualificationIndex && $Work_Experience >= $numExperience){
+if ($Level_Of_Education_Index >= $minQualificationIndex && $Work_Experience >= $numExperience){
     $Status = 'PENDING';
 }
 
 $sql = "INSERT INTO applies (Full_Name, Email_Address, IC, Phone_No, DOB, Gender, Nationality, Id_Passport, 
 Work_Experience, Level_Of_Education, Qualifications, School_Details, Other_Qualification, 
 CV, Cover_Letter,
-Level_of_Education_Index , Status , File_Location) 
+Level_Of_Education_Index , Status , File_Location) 
 VALUES ('$Full_Name', '$Email_Address', '$IC', '$Phone_No', '$DOB', '$Gender', '$Nationality', '$Id_Passport', 
 '$Work_Experience', '$Level_Of_Education', '$Qualifications', '$School_Details', '$Other_Qualification', 
 '$CV', '$Cover_Letter',
-'$Level_of_Education_Index' , '$Status' , '$File_Location')";
+'$Level_Of_Education_Index' , '$Status' , '$File_Location')";
 
 
 
