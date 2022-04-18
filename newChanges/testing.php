@@ -379,8 +379,8 @@ $jobName = $_GET['jobName'];
         </div>
         <br/>
         <div class="form-group">
-          <label for="Level_of_Education">Level of Education</label>
-          <select name="Level_of_Education" id="Level_of_Education" class="form-control">
+          <label for="Level_Of_Education">Level of Education</label>
+          <select name="Level_Of_Education" id="Level_Of_Education" class="form-control">
               <option value="choose" selected>-- Select Level of Education --</option>
               <option value="PHD">PHD</option>
               <option value="Masters">Masters</option>
