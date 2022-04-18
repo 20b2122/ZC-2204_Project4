@@ -31,7 +31,7 @@ if (isset($_POST['reg_user']) && $_POST['reg_user'] == 'Submit') {
             $_SESSION['username'] = $username;
             $_SESSION['success'] = "Logged in successfully";
             echo "<h1 style='text-align: center; margin-top: 10px;'>Welcome " . $username . "!</h1>";
-            header('location: form-page.php');
+            header('location: testing.php');
         } else {
             $message[] = "Wrong username/password combination, please try again";
         }
