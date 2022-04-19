@@ -64,6 +64,20 @@ $jobName = $_GET['jobName'];
     button:hover {
       opacity: 0.8;
     }
+    
+    #submitBtn {
+      background-color: #04aa6d;
+      color: #ffffff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 17px;
+      font-family: Raleway;
+      cursor: pointer;
+    }
+
+    #submitBtn:hover {
+      opacity: 0.8;
+    }
 
     #prevBtn {
       background-color: #bbbbbb;
@@ -446,7 +460,7 @@ $jobName = $_GET['jobName'];
       <div style="overflow: auto">
         <div style="float: right">
           <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-          <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+          <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button> <br/><br/>
           <input type="submit" id="submitBtn" name="Submit" value="Submit Form">
         </div>
       </div>
