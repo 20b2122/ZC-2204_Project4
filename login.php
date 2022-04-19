@@ -19,6 +19,7 @@ if(isset($_POST['email'])){
         header("refresh:1 ; url='login.php'");
         exit();
     }
+
 }
 
 ?>
@@ -35,13 +36,15 @@ if(isset($_POST['email'])){
         
         <form method="POST" action="#">
             <p>Email</p>
-            <input type="text" name="email" placeholder="Enter Email">
+            <input type="text" name="email" placeholder="Enter Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
             <p>Password</p>
             <input type="password" name="password" placeholder="Enter Password">
             <p><a href="forgot-pass.php">Forgot Password?</a></p>
             <input type="submit" value="Login">
         </form>
     </div>
+
+
 </body>
 </head>
 </html>
