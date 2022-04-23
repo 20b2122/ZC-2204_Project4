@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload new job opening</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" 
+    crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">                                           
+</head>
+<body style="text-align: center;">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <header style="font-size:25px; color: white;">Details of new job</header>
+    </nav>
+    </br>
+    <h2>Please fill in the new job details below:</h2>
+    <form role="form" name="newJobForm" method="POST" class="main-form needs-validation" action="uploadJob.php" novalidate>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default">Name of Job</span>
+            <input type="text" class="form-control" id="jobName" name="jobName" 
+            aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" 
+             onkeyup="this.value = this.value.toUpperCase();">     
+            <div class="invalid-feedback">Please enter job name.</div>       
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="input-group">
+                <span class="input-group-text" >Department:</span>
+                <select name="department" id="department" class="form-control">
+                    <option value="FASS">FASS</option>
+                    <option value="FOS">FOS</option>
+                    <option value="IHS">IHS</option>
+                    <option value="FIT">FIT</option>
+                    <option value="SBE">SBE</option>
+                    <option value="SDS">SDS</option>
+                    <option value="others">Others</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col">
+                <div class="input-group">
+                    <span class="input-group-text">Quota:</span>
+                    <input class="form-control" type="number" id="quota" name="quota" required>
+                    <div class="invalid-feedback">Please enter the number of quota available.</div>
+                </div>
+            </div>
+        </div></br>
+
+        <div class="row">
+            <div class="col">
+               <div class="input-group">
+                <span class="input-group-text" >Job category:</span>
+                <select name="jCategory" id="jCategory" class="form-control">
+                    <option value="academic">Academic Position</option>
+                    <option value="nonAcademic">Non-academic Position</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col">
+                <div class="input-group">
+                <span class="input-group-text" >Employement Type</span>
+                <select name="jType" id="jType" class="form-control">
+                    <option value="fullTime">Full-Time</option>
+                    <option value="partTime">Part-Time</option>
+                    <option value="temporary">Temporary</option>
+                    <option value="seasonal">Seasonal</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </br>
+
+    <div class="row">
+             <div class="col">
+                <div class="input-group">
+                    <span class="input-group-text">Average salary per annum in BND:</span>
+                    <input class="form-control" type="number" id="salary" name="salary" required>
+                    <div class="invalid-feedback">Please enter the average salary.</div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="input-group">
+                    <span class="input-group-text">Time</span>
+                    <input class="form-control" type="time" id="startTime" name="startTime" required>
+                    <div class="invalid-feedback">Please enter the start time.</div> </br>
+                    <input class="form-control" type="time" id="endTime" name="endTime" required>
+                    <div class="invalid-feedback">Please enter the end time.</div> 
+                </div>
+            </div>
+        </div>
+        <br/>
+
+
+        <div class="row">
+            <div class="col">
+                <div class="input-group">
+                <span class="input-group-text" >Minimum Qualification:</span>
+                <select name="minQualification" id="minQualification" class="form-control">
+                    <option value="Olevel">Olevel</option>
+                    <option value="Alevel">Alevel</option>
+                    <option value="Diploma">Diploma</option>
+                    <option value="Degree">Degree</option>
+                    <option value="Master">Master</option>
+                    <option value="PHD">PHD</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col">
+                <div class="input-group">
+                    <span class="input-group-text">Years of experience:</span>
+                    <input class="form-control" type="number" id="numExperience" name="numExperience" required>
+                </div>
+            </div>
+        </div><br/>
+
+        <div class="input-group">
+            <span class="input-group-text">Job requirements:</span>
+            <textarea class="form-control" aria-label="With textarea" id="jRequirements" name="jRequirements" 
+            rows="5" cols="40" required></textarea>
+        </div><br/>
+        
+
+        <div class="input-group">
+            <span class="input-group-text">Job description:</span>
+            <textarea class="form-control" aria-label="With textarea" id="jDescription" 
+            name="jDescription" rows="5" cols="40" required></textarea>
+            <div class="invalid-feedback">Please enter the job description.</div>
+        </div>
+        <br/>
+
+        <div class="col">
+            <div class="input-group">
+                <span class="input-group-text">Closing Date:</span>
+                <input type="date" id="closeDate" name="closeDate" class="form-select" required>
+                <div class="invalid-feedback">Please enter a valid closing date.</div>
+            </div>
+        </div>
+        <br/>
+  
+
+        
+    </br>
+        <input type="submit" id="btn" class="btn btn-success" value="Submit" style="float:right">
+        <button style="float:left;"  type="button" class="btn btn-light" onclick="cancelUpload()">Cancel</button>
+    </form>
+
+    <footer class="bg-dark text-center text-white" style="margin-top:60px">
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2022 Created by:
+        <a class="text-white" href="">Project 4 students</a>
+        </div>
+        <!-- Copyright -->
+        </footer>
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
+    <script>
+        var form = document.querySelector('.needs-validation');
+
+        form.addEventListener('submit', function(event) {
+            if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+        })
+
+        function cancelUpload() {
+            var r = confirm("Are you sure you want to cancel?");
+            if (r == true) {
+                window.location.href = "mainRecruiterPage.php";
+            }
+        }
+
+    </script>
+
+</body>
+</html>
